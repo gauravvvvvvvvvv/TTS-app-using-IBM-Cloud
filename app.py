@@ -7,9 +7,9 @@ import os
 IBM_API_KEY = st.secrets["IBM_API_KEY"]
 IBM_URL = st.secrets["IBM_URL"]
 
-authenticator = IAMAuthenticator(api_key)
+authenticator = IAMAuthenticator(IBM_API_KEY)
 tts = TextToSpeechV1(authenticator=authenticator)
-tts.set_service_url(url)
+tts.set_service_url(IBM_URL)
 
 def synthesize_text(text):
     response = tts.synthesize(

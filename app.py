@@ -4,8 +4,8 @@ from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
 import base64
 import os
 
-api_key = st.secrets["IBM_API_KEY"]
-url = st.secrets["IBM_URL"]
+IBM_API_KEY = st.secrets["IBM_API_KEY"]
+IBM_URL = st.secrets["IBM_URL"]
 
 authenticator = IAMAuthenticator(api_key)
 tts = TextToSpeechV1(authenticator=authenticator)

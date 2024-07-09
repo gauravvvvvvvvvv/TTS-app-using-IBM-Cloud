@@ -2,15 +2,10 @@ import streamlit as st
 from ibm_watson import TextToSpeechV1
 from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
 import base64
-from dotenv import load_dotenv
 import os
 
-# Load environment variables from .env file
-load_dotenv()
-
-# IBM Watson TTS credentials from environment variables
-api_key = os.getenv('IBM_API_KEY')
-url = os.getenv('IBM_URL')
+api_key = st.secrets["IBM_API_KEY"]
+url = st.secrets["IBM_URL"]
 
 authenticator = IAMAuthenticator(api_key)
 tts = TextToSpeechV1(authenticator=authenticator)
